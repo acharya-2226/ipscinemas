@@ -364,10 +364,3 @@ python manage.py migrate
 
 ---
 
-## 🎉 Bonus
-
-Want more? These can be generated on request:
-
-- 📄 Swagger / OpenAPI docs
-- 📬 Postman collection
-- 🚀 Deployment guide (Render / VPS / Nginx + Gunicorn)
