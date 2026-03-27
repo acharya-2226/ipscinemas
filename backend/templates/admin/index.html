@@ -1,0 +1,62 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="pix-dashboard-head">
+  <h2>Cinema Operations</h2>
+  <p>Quick access to all operational models.</p>
+</div>
+
+<div class="pix-metric-row">
+  <div class="pix-metric-card">
+    <p>Apps Available</p>
+    <h3>{{ app_list|length }}</h3>
+  </div>
+  <div class="pix-metric-card">
+    <p>Environment</p>
+    <h3>Live Admin</h3>
+  </div>
+  <div class="pix-metric-card">
+    <p>Session</p>
+    <h3>{{ request.user.username }}</h3>
+  </div>
+</div>
+
+<section class="pix-quick-actions">
+  <h3>Quick Actions</h3>
+  <div class="pix-card-actions">
+    <a href="{% url 'admin:api_movie_add' %}">Add Movie</a>
+    <a href="{% url 'admin:api_show_add' %}">Add Show</a>
+    <a href="{% url 'admin:api_booking_changelist' %}">View Bookings</a>
+    <a href="{% url 'admin:User_user_changelist' %}">Manage Users</a>
+  </div>
+</section>
+
+<div class="pix-dashboard-grid">
+  {% for app in app_list %}
+    <section class="pix-app-card module">
+      <header>
+        <h3><a href="{{ app.app_url }}">{{ app.name }}</a></h3>
+        <p>{{ app.models|length }} model{{ app.models|length|pluralize }}</p>
+      </header>
+      <ul>
+        {% for model in app.models %}
+          <li>
+            <span>{{ model.name }}</span>
+            <div class="pix-card-actions">
+              {% if model.admin_url %}
+                <a href="{{ model.admin_url }}">View</a>
+              {% endif %}
+              {% if model.add_url %}
+                <a href="{{ model.add_url }}">Add</a>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% empty %}
+    <p>{% trans "You don't have permission to view or edit anything." %}</p>
+  {% endfor %}
+</div>
+{% endblock %}

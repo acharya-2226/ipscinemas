@@ -1,0 +1,143 @@
+.admin-page-container {
+  max-width: 1200px;
+  width: calc(100% - 2rem);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0f0f0;
+}
+
+.admin-subtitle {
+  margin: 0.35rem 0 1.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-card {
+  background: rgba(50, 50, 60, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+}
+
+.admin-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  background: rgba(20, 20, 30, 0.6);
+  color: #f0f0f0;
+  transition: all 0.3s;
+}
+
+.admin-form input::placeholder,
+.admin-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+}
+
+.admin-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.admin-form input[type="file"] {
+  padding: 0.55rem 0.65rem;
+}
+
+.admin-form input[type="file"]::file-selector-button {
+  margin-right: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.6rem;
+  background: rgba(102, 126, 234, 0.18);
+  color: #e8eeff;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+.admin-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.admin-checkbox input {
+  accent-color: #667eea;
+}
+
+.admin-form .btn-primary {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+.admin-form .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-message {
+  margin: 0.9rem 0 0;
+  color: #9be79b;
+}
+
+@media (max-width: 900px) {
+  .admin-page-container {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-page-container {
+    width: calc(100% - 1rem);
+    margin: 1rem 0.5rem;
+    padding: 1rem;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-card {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,298 @@
+/* ============================================
+   MOVIES PAGE - Dark Glassmorphism Design
+   ============================================ */
+
+.movies-container {
+  max-width: 1200px;
+  width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+}
+
+.now-showing-container {
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movies-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.day-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.day-selector-btn {
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  width: 110px; /* Fixed width */
+  white-space: nowrap;
+  text-align: center;
+}
+
+.day-selector-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f0f0f0;
+  transition: all 0.3s;
+}
+
+.day-selector-btn-outline:hover {
+  transform: translateY(-2px);
+  border-color: rgba(102, 126, 234, 0.6);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.movies-list {
+  --tile-aspect-ratio: 2 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex: 1;
+  align-content: flex-start;
+  position: relative;
+  min-height: 500px;
+  justify-content: flex-start;
+}
+
+.movie-tile {
+  width: calc((100% - 6rem) / 4);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.movie-tile[role="button"] {
+  cursor: pointer;
+}
+
+.movie-tile[role="button"]:focus-visible {
+  outline: 2px solid rgba(102, 126, 234, 0.8);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.movie-poster {
+  width: 100%;
+  aspect-ratio: var(--tile-aspect-ratio);
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-tile:hover .movie-poster,
+.movie-tile:focus-within .movie-poster {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 36px rgba(102, 126, 234, 0.28);
+}
+
+.movie-card {
+  width: 100%;
+  background: rgba(50, 50, 60, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  color: #f0f0f0;
+  min-height: 180px;
+}
+
+.movie-tile:hover .movie-card {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.movie-card h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+  min-height: 2.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.movie-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.97rem;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.movie-card .btn-login-primary {
+  margin-top: auto;
+  width: 100%;
+  line-height: 1;
+  padding: 0.8rem 1rem;
+}
+.movie-tile:hover .movie-card .btn-login-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.movies-empty-text {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.loading-text,
+.error-text {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.error-text {
+  color: #f87171;
+}
+
+@media (max-width: 1240px) {
+  .movies-container {
+    width: calc(100% - 2rem);
+    margin: 2rem 1rem;
+  }
+  .movies-list {
+    gap: 1.25rem;
+  }
+  .movie-tile {
+    width: calc((100% - 3.75rem) / 4);
+  }
+  .movie-poster {
+    aspect-ratio: var(--tile-aspect-ratio);
+  }
+  .movie-card {
+    min-height: 170px;
+  }
+  .movie-card h4 {
+    font-size: clamp(1rem, 1.4vw, 1.12rem);
+  }
+  .movie-card p {
+    font-size: clamp(0.9rem, 1.05vw, 0.97rem);
+  }
+  .movie-card .btn-login-primary {
+    font-size: clamp(0.88rem, 1vw, 0.95rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .movies-list {
+    gap: 1rem;
+    min-height: 400px;
+    justify-content: flex-start;
+  }
+  .movie-tile {
+    width: calc((100% - 2rem) / 3);
+  }
+  .movie-poster {
+    aspect-ratio: var(--tile-aspect-ratio);
+  }
+  .movie-card {
+    min-height: 160px;
+    padding: 0.9rem 0.6rem;
+  }
+  .movie-card h4 {
+    font-size: clamp(0.95rem, 1.9vw, 1.05rem);
+    min-height: 2rem;
+  }
+  .movie-card p {
+    font-size: clamp(0.82rem, 1.45vw, 0.9rem);
+  }
+  .movie-card .btn-login-primary {
+    font-size: clamp(0.8rem, 1.4vw, 0.88rem);
+    padding: 0.7rem 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-container {
+    padding: 1rem;
+    width: calc(100% - 1rem);
+    margin: 1rem 0.5rem;
+  }
+  .now-showing-container {
+    min-height: auto;
+  }
+  .day-selector {
+    flex-wrap: wrap;
+  }
+  .day-selector-btn {
+    width: 110px; /* Keep same fixed width on mobile */
+    padding: 0.5rem 0.75rem;
+  }
+  .movies-list {
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .movie-tile {
+    width: calc(50% - 0.375rem);
+  }
+  .movie-poster {
+    aspect-ratio: var(--tile-aspect-ratio);
+  }
+  .movie-card {
+    min-height: 150px;
+    padding: 0.8rem 0.55rem 0.9rem;
+  }
+  .movie-card h4 {
+    font-size: clamp(0.88rem, 3.6vw, 1rem);
+    min-height: 1.8rem;
+    margin-bottom: 0.4rem;
+  }
+  .movie-card p {
+    font-size: clamp(0.74rem, 3vw, 0.86rem);
+    margin-bottom: 0.3rem;
+  }
+  .movie-card .btn-login-primary {
+    font-size: clamp(0.74rem, 2.9vw, 0.84rem);
+    padding: 0.6rem 0.7rem;
+  }
+}

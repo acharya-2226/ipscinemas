@@ -1,0 +1,260 @@
+/* ============================================
+   REGISTER PAGE - Dark Glassmorphism Design
+   ============================================ */
+
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+
+  /* Repeating background image */
+  background: url('/media/background1.jpg') repeat;
+
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Elements */
+.register-container::before,
+.register-container::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+}
+
+.register-container::before {
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.register-container::after {
+  bottom: -200px;
+  right: -200px;
+  animation-delay: 10s;
+}
+
+/* Register Wrapper */
+.register-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Register Card - Dark Theme */
+.register-card {
+  background: rgba(30, 30, 40, 0.85); /* Dark semi-transparent */
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInRight 0.6s ease-out;
+  color: #f0f0f0;
+}
+
+/* Register Features - Dark Theme */
+.register-features {
+  color: #f0f0f0;
+  padding: 2.5rem;
+  background: rgba(50, 50, 60, 0.7);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+.register-header h2 {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.register-header p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+
+/* Form Elements */
+.form-label {
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.9375rem;
+}
+
+.form-control {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  font-size: 1rem;
+  transition: all 0.3s;
+  width: 100%;
+  font-family: inherit;
+  background: rgba(20, 20, 30, 0.6);
+  color: #f0f0f0;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Register Button */
+.btn-register-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  font-size: 1.0625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-register-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-register-primary:active {
+  transform: translateY(0);
+}
+
+.btn-register-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Register Footer */
+.register-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.register-footer p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.register-footer a {
+  color: #667eea;
+}
+
+/* Alert */
+.alert {
+  border-radius: 0.75rem;
+  border: none;
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.alert-danger {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .register-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .register-features {
+    text-align: center;
+  }
+  .register-features li {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-card {
+    padding: 1.5rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .register-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

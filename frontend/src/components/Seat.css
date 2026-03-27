@@ -1,0 +1,90 @@
+/* ============================================
+   SEAT COMPONENT - Individual Seat Styling
+   ============================================ */
+
+.seat {
+  width: var(--seat-size, 40px);
+  height: var(--seat-size, 40px);
+  border-radius: 0.5rem;
+  border: 2px solid rgba(124, 147, 255, 0.35);
+  background: #1b2233;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.625rem, calc(var(--seat-size, 40px) / 3.2), 0.75rem);
+  font-weight: 600;
+  color: #ced6ee;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.seat::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.seat:active::before {
+  width: 80px;
+  height: 80px;
+}
+
+.seat.available {
+  background: linear-gradient(135deg, #263148 0%, #1c2538 100%);
+  border-color: rgba(124, 147, 255, 0.45);
+  color: #ffffff;
+}
+
+.seat.available:hover {
+  background: linear-gradient(135deg, #334264 0%, #24314b 100%);
+  border-color: #8ea6ff;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.45);
+}
+
+.seat.selected {
+  background: linear-gradient(135deg, #28a745 0%, #1f8a38 100%);
+  border-color: #28a745;
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.seat.selected:hover {
+  background: linear-gradient(135deg, #23903d 0%, #1a742f 100%);
+  transform: scale(1.1);
+}
+
+.seat.booked {
+  background: linear-gradient(135deg, #dc3545 0%, #b82535 100%);
+  border-color: #dc3545;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.seat.booked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.seat-icon {
+  width: calc(var(--seat-size, 40px) * 0.62);
+  height: calc(var(--seat-size, 40px) * 0.62);
+  transition: transform 0.2s;
+}
+
+.seat.selected .seat-icon {
+  transform: scale(1.2);
+}
+

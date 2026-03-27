@@ -1,0 +1,73 @@
+.bookings-container {
+  max-width: 1000px;
+  width: calc(100% - 2rem);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+}
+
+.bookings-title {
+  margin: 0 0 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.bookings-empty {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bookings-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-card {
+  background: rgba(50, 50, 60, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.booking-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-row:last-child {
+  border-bottom: none;
+}
+
+.booking-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.booking-value {
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+  .bookings-container {
+    width: calc(100% - 1rem);
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .booking-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .booking-value {
+    text-align: left;
+  }
+}
